@@ -68,6 +68,7 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/fastjson-1.1.15.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/okhttp-3.12.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/okio-2.1.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/websocket-api.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

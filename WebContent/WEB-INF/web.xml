@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
-	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" 
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
-  	<display-name>SSHEnv</display-name>
-  
-  	<filter>
-  		<filter-name>SSHEnvFilter</filter-name>
-  		<filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
-  	</filter>
-  	<filter-mapping>
+	<display-name>SSHEnv</display-name>
+
+	<filter>
+		<filter-name>SSHEnvFilter</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+	<filter-mapping>
 		<filter-name>SSHEnvFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-  
+
+	<!-- servlet websocket -->
+	<servlet>
+		<servlet-name>wsServlet</servlet-name>
+		<servlet-class>com.sshenv.websocket.servlet_websocket.WebServelt</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>wsServlet</servlet-name>
+		<url-pattern>/wsServlet</url-pattern>
+	</servlet-mapping>
+
 	<welcome-file-list>
-	    <welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>

@@ -6,7 +6,8 @@
 <struts>
 
 	<package name="default" namespace="/" extends="struts-default">
-		<action name="hello" class="com.sshenv.struts2.action.HelloAction">
+		<action name="hello"
+			class="com.sshenv.struts2.action.HelloAction">
 			<result>/hello.jsp</result>
 		</action>
 
@@ -22,6 +23,10 @@
 		<action name="getSign" class="com.sshenv.gsww.getSignAction"
 			method="getSign">
 		</action>
+
 	</package>
+
+	<constant name="struts.action.excludePattern"
+		value="/wsServlet"></constant>
 
 </struts>

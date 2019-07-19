@@ -1,14 +1,18 @@
 package com.sshenv.spring.service.impl;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
+import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import com.sshenv.hibernate.Teacher;
 import com.sshenv.spring.dao.IAcountDao;
 import com.sshenv.spring.service.IAccountService;
 
@@ -32,12 +36,30 @@ public class AccountServiceImpl implements IAccountService {
 	public void destroy() {
 		System.out.println("对象销毁了");
 	}
-	
+
 	@Override
-	public void saveAccount() {
-		// TODO Auto-generated method stub
-		System.out.println("haha: " + driver);
-		accountDao.saveAccount();
+	public void saveAccount(Teacher teacher) {
+		accountDao.save(teacher);
+	}
+
+	@Override
+	public void updateAccount(Teacher teacher) {
+		accountDao.update(teacher);
+	}
+
+	@Override
+	public void deleteAccount(Teacher teacher) {
+		accountDao.delete(teacher);
+	}
+
+	@Override
+	public Teacher findTeacherById(Integer teacherId) {
+		return accountDao.findById(teacherId);
+	}
+
+	@Override
+	public List<Teacher> findAllTeacher(DetachedCriteria crideria) {
+		return accountDao.findAll(crideria);
 	}
 
 }

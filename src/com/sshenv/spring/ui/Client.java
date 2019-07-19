@@ -25,7 +25,7 @@ public class Client {
 		ApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
 		
 		IAccountService accountService = context.getBean("accountService", IAccountService.class);
-		accountService.saveAccount();
+		accountService.saveAccount(new Teacher());
 	}
 
 	@Test

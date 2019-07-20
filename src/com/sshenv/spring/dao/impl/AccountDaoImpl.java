@@ -2,17 +2,20 @@ package com.sshenv.spring.dao.impl;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.orm.hibernate5.HibernateTemplate;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.sshenv.hibernate.Teacher;
 import com.sshenv.spring.dao.IAcountDao;
 
 
-@Component(value = "accountDao")
+@Repository("accountDao")
 public class AccountDaoImpl implements IAcountDao {
 
+	@Resource(name="hibernateTemplate")
 	private HibernateTemplate hibernateTemplate;
 
 	@Override
@@ -32,7 +35,6 @@ public class AccountDaoImpl implements IAcountDao {
 
 	@Override
 	public Teacher findById(Integer teacherId) {
-		// return hibernateTemplate.findby
 		return null;
 	}
 

@@ -11,16 +11,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.sshenv.hibernate.Teacher;
 import com.sshenv.spring.dao.IAcountDao;
 import com.sshenv.spring.service.IAccountService;
 
-@Component(value="accountService")
+@Service("accountService")
 public class AccountServiceImpl implements IAccountService {
 
-//	@Autowired
-//	@Qualifier(value="accountDao1")
 	@Resource(name="accountDao")
 	private IAcountDao accountDao;
 

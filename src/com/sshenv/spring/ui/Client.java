@@ -58,7 +58,7 @@ public class Client {
 			session.beginTransaction();
 			
 			Teacher stu1 = new Teacher();
-			stu1.setName("llf_ssh");
+			stu1.setName("llf_ssh_1");
 			stu1.setAge(1888);
 			
 			session.save(stu1);

@@ -1,19 +1,35 @@
 package com.sshenv.test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
 
+import org.hibernate.criterion.DetachedCriteria;
 import org.junit.jupiter.api.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.sshenv.hibernate.Teacher;
 import com.sshenv.spring.service.IAccountService;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = { "bean.xml" })
 class AccountServiceTest {
+
+	@Autowired
+	private IAccountService cs;
 
 	@Test
 	void testSaveAccount() {
-		ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
-		IAccountService accountService = ac.getBean("accountService", IAccountService.class);
+
 	}
 
+	@Test
+	public void testFindAllTeacher() {
+		DetachedCriteria dCrideria = DetachedCriteria.forClass(Teacher.class);
+		List list = cs.findAllTeacher(dCrideria);
+		for (Object o : list) {
+			System.out.println(o);
+		}
+	}
 }

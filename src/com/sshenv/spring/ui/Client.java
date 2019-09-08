@@ -11,23 +11,27 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.hibernate.tool.schema.TargetType;
-import org.junit.jupiter.api.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.sshenv.hibernate.Teacher;
 import com.sshenv.spring.service.IAccountService;
 
 public class Client {
 
+	@Autowired
+	public static IAccountService accountService;
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		ApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
-		
-		IAccountService accountService = context.getBean("accountService", IAccountService.class);
-		accountService.saveAccount(new Teacher());
+		Teacher t = new Teacher();
+		t.setName("teacherName1");
+		if(accountService == null) {
+			System.out.println("null");
+			return;
+		}
+		accountService.saveAccount(t);
 	}
-
+	
 	@Test
 	public void createTable() {
 		ServiceRegistry sr = new StandardServiceRegistryBuilder().configure().build();

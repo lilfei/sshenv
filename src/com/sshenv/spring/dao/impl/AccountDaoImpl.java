@@ -2,20 +2,18 @@ package com.sshenv.spring.dao.impl;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.hibernate.criterion.DetachedCriteria;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
 import com.sshenv.hibernate.Teacher;
 import com.sshenv.spring.dao.IAcountDao;
 
-
-@Repository("accountDao")
+@Component(value="accountDao")
 public class AccountDaoImpl implements IAcountDao {
 
-	@Resource(name="hibernateTemplate")
+	@Autowired
 	private HibernateTemplate hibernateTemplate;
 
 	@Override

@@ -4,23 +4,20 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.annotation.Resource;
 
 import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import com.sshenv.hibernate.Teacher;
 import com.sshenv.spring.dao.IAcountDao;
 import com.sshenv.spring.service.IAccountService;
 
-@Service("accountService")
+@Component(value="accountService")
 public class AccountServiceImpl implements IAccountService {
 
-	@Resource(name="accountDao")
+	@Autowired
 	private IAcountDao accountDao;
 
 	@Value("${jdbc.driver}")

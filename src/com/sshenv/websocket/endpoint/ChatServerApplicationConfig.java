@@ -19,7 +19,7 @@ public class ChatServerApplicationConfig implements ServerApplicationConfig {
 		Set<ServerEndpointConfig> result = new HashSet<>();
 		if (scanned.contains(ChatEndPoint.class)) {
 			result.add(ServerEndpointConfig.Builder
-					.create(ChatEndPoint.class,"/program/chat")
+					.create(ChatEndPoint.class,"/websocket/endpoint")
 					.build());
 		}
 		return result;

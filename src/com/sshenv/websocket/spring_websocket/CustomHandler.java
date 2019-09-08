@@ -1,10 +1,11 @@
-package com.sshenv.websocket;
+package com.sshenv.websocket.spring_websocket;
 
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
@@ -12,6 +13,7 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 import com.sshenv.util.Constant;
 
+@Component
 public class CustomHandler extends TextWebSocketHandler {
 	private Map<String, WebSocketSession> nameAndSession = new ConcurrentHashMap<>();
 

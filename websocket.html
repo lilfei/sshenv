@@ -6,8 +6,10 @@
         Chat.socket = null;
         Chat.connect = (function(host) {
             if ('WebSocket' in window) {
+            	console.log('WebSocket is 1');
                 Chat.socket = new WebSocket(host);
             } else if ('MozWebSocket' in window) {
+            	console.log('WebSocket is 2');
                 Chat.socket = new MozWebSocket(host);
             } else {
                 Console.log('Error: WebSocket is not supported by this browser.');
@@ -31,8 +33,11 @@
         });
         Chat.initialize = function() {
             // if (window.location.protocol == 'http:') {
-                //Chat.connect('ws://localhost:8080/SSHEnv/program/chat');
-                Chat.connect('ws://localhost:8080/SSHEnv/wsServlet');
+                // Chat.connect('ws://localhost:8080/SSHEnv/websocket/endpoint');
+                // Chat.connect('ws://localhost:8080/SSHEnv/websocket/servlet/name=llf&password=pwd123');
+                // Chat.connect('ws://localhost:8080/SSHEnv/websocket/spring');
+                // Chat.connect('ws://localhost:8080/SSHEnv/websocket/springws');
+                 Chat.connect('ws://localhost:8080/SpringWebSocketTest/websocket/springws');
             // } else {
             //     Chat.connect('wss://localhost:8080/SSHEnv/program/chat');
             // }

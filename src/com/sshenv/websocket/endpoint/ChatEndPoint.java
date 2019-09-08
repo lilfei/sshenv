@@ -9,6 +9,7 @@ import javax.websocket.Endpoint;
 import javax.websocket.EndpointConfig;
 import javax.websocket.MessageHandler;
 import javax.websocket.Session;
+import javax.websocket.server.ServerEndpoint;
 
 public class ChatEndPoint extends Endpoint {
 
@@ -24,6 +25,7 @@ public class ChatEndPoint extends Endpoint {
 
 		@Override
 		public void onMessage(String message, boolean last) {
+			System.out.println("ChatEndPoint: onMessage! " + message);
 			String msg = String.format("%s %s %s", session.getId(), "said:", message);
 			broadcast(msg);
 		}
@@ -31,6 +33,7 @@ public class ChatEndPoint extends Endpoint {
 
 	@Override
 	public void onOpen(Session session, EndpointConfig config) {
+		System.out.println("ChatEndPoint: onOpen!");
 		this.session = session;
 		connections.add(this);
 		this.session.addMessageHandler(new ChatMessageHandler(session));
@@ -40,6 +43,7 @@ public class ChatEndPoint extends Endpoint {
 
 	@Override
 	public void onClose(Session session, CloseReason closeReason) {
+		System.out.println("ChatEndPoint: onClose!");
 		connections.remove(this);
 		String message = String.format("%s %s", session.getId(), "has disconnected.");
 		broadcast(message);
@@ -47,7 +51,7 @@ public class ChatEndPoint extends Endpoint {
 
 	@Override
 	public void onError(Session session, Throwable throwable) {
-
+		System.out.println("ChatEndPoint: onError!");
 	}
 
 	private static void broadcast(String msg) {

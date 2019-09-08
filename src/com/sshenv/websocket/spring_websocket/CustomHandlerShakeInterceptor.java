@@ -1,4 +1,4 @@
-package com.sshenv.websocket;
+package com.sshenv.websocket.spring_websocket;
 
 import java.net.InetAddress;
 import java.net.InetSocketAddress;

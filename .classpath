@@ -77,6 +77,7 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/hibernate-c3p0-5.4.2.Final.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/tomcat-embed-websocket-9.0.16.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/gson-2.8.5.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/org.eclipse.paho.client.mqttv3-1.2.5.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

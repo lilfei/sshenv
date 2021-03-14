@@ -1,0 +1,15 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	
+<hibernate-mapping>
+	<class name="com.sshenv.hibernate.Teacher" table="stu_tab">
+		<id name="id" column="stu_id">
+			<generator class="native"></generator>
+		</id>
+		
+		<property name="name" column="stu_name"></property>
+		<property name="age" column="stu_age"></property>
+		<property name="money" column="stu_money"></property>
+	</class>
+</hibernate-mapping>

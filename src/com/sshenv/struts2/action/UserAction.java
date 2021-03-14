@@ -19,16 +19,16 @@ public class UserAction extends ActionSupport {
 	private String passWord;
 
 	/**
-	 * http://localhost:8080/StrutsTest1/login?userName=haha&&passWord=123456
+	 * http://localhost:8080/SSHEnv/login?userName=haha&&passWord=123456
 	 * @return
 	 * @throws IOException
 	 */
 	public String login() throws IOException {
-		System.out.println(userName + " , " + passWord);
+		System.out.println("UserAction: " + userName + " , " + passWord);
 
 		HttpServletResponse response = ServletActionContext.getResponse();
 		PrintWriter writer = response.getWriter();
-		writer.write("login success ! " + userName);
+		writer.write("UserAction: login success ! " + userName);
 		writer.flush();
 
 		return null;
